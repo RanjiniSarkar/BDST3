@@ -1,18 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+import  ReadScreen from './screens/readScreen'
+import WriteScreen from './screens/writeScreen'
+
+export default class App extends React.Component {
+  render(){
+    return (
+      
+        <AppContainer />
+      
+    );
+  }
 }
+
+const TabNavigator = createBottomTabNavigator({
+ Read :{screen:ReadScreen},
+ Write:{screen:WriteScreen}
+});
+
+const AppContainer =  createAppContainer(TabNavigator);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },
